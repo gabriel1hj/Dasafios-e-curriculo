@@ -1,0 +1,39 @@
+#Desafio dos telefones a parte tabela e chaves cria via icone
+#A chave estrangeiro cria na tabela
+
+CREATE TABLE `clientes` (
+  `i_IDclientes_clientes` int NOT NULL,
+  `s_nome_clientes` varchar(50) NOT NULL,
+  PRIMARY KEY (`i_IDclientes_clientes`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+;
+CREATE TABLE `telefone` (
+  `i_idtelefone_telefone` int NOT NULL,
+  `s_tipo_telefone` varchar(45) DEFAULT NULL,
+  `i_telefone_telefone` int DEFAULT NULL,
+  PRIMARY KEY (`i_idtelefone_telefone`),
+  CONSTRAINT `fk_telefone` FOREIGN KEY (`i_idtelefone_telefone`) REFERENCES `clientes` (`i_IDclientes_clientes`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+;
+#ai depois dei um insert into para colocor os dados mas parte vem
+
+select s_nome_clientes,
+sum(case when s_tipo_telefone = "RES" then i_telefone_telefone else 0 end)'RES',
+sum(case when s_tipo_telefone = "CEL" then i_telefone_telefone else 0 end)'CEL',
+sum(case when s_tipo_telefone = "FAX" then i_telefone_telefone else 0 end)'FAX' from clientes 
+
+inner join telefone 
+on 
+i_IDclientes_clientes = i_idtelefone_telefone
+
+group by s_nome_clientes
+;
+#select = para fazer consulta
+#campos e sum para fazer implementação de condições
+#when = quando then = então else = senão
+#O que eu quero fazer ali e transforma linhas em colunas
+#inner join para fazer a conexão das tabelas
+#group porque senão dar erro,experimente sem group by
+#OBS = se não coloca o nome de cliente vai aparece so um dado somado,(SEMPRE COLOQUE OS NOMES NA TABELA
+
+Caso um empresa esteja interresada me contacte
