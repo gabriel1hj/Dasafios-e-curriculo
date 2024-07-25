@@ -1,0 +1,41 @@
+#Este e o desafio em python fiz e bem simples.
+
+from functools import reduce
+
+def man():
+
+    Bimestre = [6.5 , 7.8 , 9.1 , 4.1]
+
+    opers = reduce(lambda x,y:x+y,Bimestre)
+
+    oper = opers / 4
+
+    return oper
+
+print(man())
+
+#ja este daqui e simples mas resolvi da uma enfeitada
+
+def desafio2():
+    alturas_terreno = [2, 5, 1, 3, 2, 4, 5, 7, 4, 2, 3]
+
+    formula = max(alturas_terreno)
+    print(f"Esta e a formula {formula}\nestas são as cordenadas")
+
+    def operaes():
+
+        Fomu = [b for b in range(10,40)]
+        opet = reduce(lambda x,y:x + y,Fomu)
+        opet += 1
+
+
+
+        ipot = set(alturas_terreno)
+        opey = reduce(lambda x, y: x * y, ipot)
+
+        dicio = {"coodernadas": opet,"coor": opey}
+
+        for v in dicio.values():
+            print(v)
+
+    operaes()
