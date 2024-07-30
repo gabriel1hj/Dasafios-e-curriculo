@@ -1,0 +1,37 @@
+#Bem um codigo para quem quer inserir dados no banco de dados de forma amigavel,inseri manualmente sem precisa copia e cola e python!
+#os as asteriscos em engine para senha 
+#pegue o codigo e modifique
+#Se quise pode cria função
+
+from sqlalchemy import  insert
+   
+import sqlalchemy as sa
+
+
+
+
+
+
+metatadas = sa.MetaData()
+engine = sa.create_engine('mysql+pymysql://#####:#######@localhost/projeto',
+                                  echo=True)
+
+
+
+while True:
+
+        con1 = input("Digite(IDprodutos(Dado:INT)):")
+        con2 = input("Digite(NomedoProduto(Dado:String)):")
+        con3 = input("Digite(QTD(Dado:INT)):")
+
+        ta = sa.Table('produtos', metatadas, autoload_with=engine)
+
+
+        with engine.connect() as con:
+            with con.begin():
+               stmt = insert(ta).values(
+               i_IDprodutos_produtos=con1,
+               s_NomedoProduto_produtos=con2,
+               i_QTD_produtos=con3)
+
+               con.execute(stmt)
