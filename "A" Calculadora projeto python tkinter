@@ -1,0 +1,133 @@
+#Bem este e o desenvolvimento do meu projeto fiz do frontend falta back vou posta atualização
+#A calculadora porque quero que tambem calcule mdc,mmc,media,primos e outras operações por enquanto ainda esta novo
+from tkinter import *
+
+import sqlite3
+
+
+
+class backend():
+
+
+    def u0(self):
+      self.zero = self.botão0.get()
+      self.zero = 0
+    def u1(self):
+      self.um = self.botão1.get()
+      self.um = 1
+    def u2(self):
+      self.dois = self.botão2.get()
+      self.dois = 2
+    def u3(self):
+      self.tres = self.botão3.get()
+      self.tres = 3
+    def u4(self):
+      self.quatro = self.botão4.get()
+      self.quatro = 4
+    def u5(self):
+      self.cinco = self.botão5.get()
+      self.cinco= 5
+    def u6(self):
+      self.seis = self.botão6.get()
+      self.seis = 6
+    def u7(self):
+      self.sete = self.botão7.get()
+      self.sete = 7
+    def u8(self):
+      self.oito = self.botão8.get()
+      self.oito= 8
+    def u9(self):
+      self.nove = self.botão4.get()
+      self.nove = 9
+
+
+
+
+
+    def Operações(self):
+     
+      self.mais = self.opermais
+      self.mais = "+"
+      
+
+root = Tk()
+
+class Aplicação(backend):
+    def __init__(self):
+        self.root = root
+        self.ConfigBasic()
+        self.frame()
+        self.ButtoesNumber()
+        self.Oper()
+        self.EntryPrincipal()
+        self.Funcionamento()
+        self.Operações()
+
+        self.root.mainloop()
+
+    def ConfigBasic(self):
+        self.root.title("Calculadora")
+        self.root.configure(background="#363636")
+        self.root.geometry("800x800")
+        self.root.resizable(True, True)
+        self.root.maxsize(width=1200,height=1000)
+        self.root.minsize(width=700,height=600)
+
+    def frame(self):
+        self.frame1 = Frame(root, background= "#808080",borderwidth=2,highlightthickness=2,highlightbackground="#556B2F")
+
+        self.frame1.place(relx= 0.1 , rely= 0.05 ,relwidth= 0.8,relheight= 0.88)
+
+    def ButtoesNumber(self):
+        self.botão0 = Button(self.frame1,text="0")
+        self.botão0.place(relx= 0.29, rely= 0.15, relwidth= 0.15,relheight= 0.1 )
+
+        self.botão1 = Button(self.frame1, text="1")
+        self.botão1.place(relx=0.44, rely=0.15, relwidth=0.15, relheight=0.1)
+
+        self.botão2 = Button(self.frame1, text="2")
+        self.botão2.place(relx=0.59, rely=0.15, relwidth=0.15, relheight=0.1)
+
+        self.botão3 = Button(self.frame1, text="3")
+        self.botão3.place(relx=0.29, rely=0.25, relwidth=0.15, relheight=0.1)
+
+        self.botão4 = Button(self.frame1, text="4")
+        self.botão4.place(relx=0.44, rely=0.25, relwidth=0.15, relheight=0.1)
+
+        self.botão4 = Button(self.frame1, text="5")
+        self.botão4.place(relx=0.59, rely=0.25, relwidth=0.15, relheight=0.1)
+
+        self.botão4 = Button(self.frame1, text="6")
+        self.botão4.place(relx=0.29, rely=0.35, relwidth=0.15, relheight=0.1)
+
+        self.botão4 = Button(self.frame1, text="7")
+        self.botão4.place(relx=0.44, rely=0.35, relwidth=0.15, relheight=0.1)
+
+        self.botão4 = Button(self.frame1, text="8")
+        self.botão4.place(relx=0.59, rely=0.35, relwidth=0.15, relheight=0.1)
+
+        self.botão4 = Button(self.frame1, text="9")
+        self.botão4.place(relx=0.29, rely=0.45, relwidth=0.15, relheight=0.1)
+
+    def Oper(self):
+        self.opermais = Button(self.frame1, text="+")
+        self.opermais.place(relx=0.14, rely=0.15, relwidth=0.15, relheight=0.1)
+
+        self.opermenos = Button(self.frame1, text="-")
+        self.opermenos.place(relx=0.14, rely=0.25, relwidth=0.15, relheight=0.1)
+
+        self.operdivi = Button(self.frame1, text="x")
+        self.operdivi.place(relx=0.14, rely=0.35, relwidth=0.15, relheight=0.1)
+
+        self.opermulti = Button(self.frame1, text="/")
+        self.opermulti.place(relx=0.14, rely=0.45, relwidth=0.15, relheight=0.1)
+
+    def EntryPrincipal(self):
+
+        self.entry = Entry(self.frame1)
+        self.entry.place(relx=0.29, rely=0.05, relwidth=0.35, relheight=0.04)
+
+
+
+
+Aplicação()
