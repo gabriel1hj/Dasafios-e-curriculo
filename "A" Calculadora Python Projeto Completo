@@ -1,0 +1,133 @@
+#bem depois de tanto tempo conseguir desenvolver bem tive que umas dicas,de outros github e codigos mais conseguir adapta
+para meu(lembrando ira ter noval atualizações,vou ainda densevolver o mmc e mdc)
+#Aviso:se a tela estiver horrosa,e que conseguir fazer primeira parte do projeto aguarde para novas atualizações
+
+from tkinter import *
+
+import sqlite3
+
+
+
+class rapido():
+    def rap1(self):
+        self.names = self.entry.get()
+
+        s = eval(self.names)
+
+        self.entry.delete(0, END)
+
+        self.entry.insert(END, s)
+
+    def rap2(self):
+        self.entry.delete(0, END)
+
+
+
+
+root = Tk()
+
+
+class Aplicação(rapido):
+    def __init__(self):
+        self.root = root
+        self.ConfigBasic()
+        self.frame()
+        self.ButtoesNumber()
+        self.Oper()
+        self.EntryPrincipal()
+
+
+        self.root.mainloop()
+
+    def ConfigBasic(self):
+        self.root.title("Calculadora")
+        self.root.configure(background="#363636")
+        self.root.geometry("800x800")
+        self.root.resizable(True, True)
+        self.root.maxsize(width=1200, height=1000)
+        self.root.minsize(width=700, height=600)
+
+    def frame(self):
+        self.frame1 = Frame(root, background="#808080", borderwidth=2, highlightthickness=2,
+                            highlightbackground="#556B2F")
+
+        self.frame1.place(relx=0.1, rely=0.05, relwidth=0.8, relheight=0.88)
+
+    def ButtoesNumber(self):
+
+      def clicl(valor):
+
+        self.entry.insert( END,valor)
+
+
+
+
+      self.botão0 = Button(self.frame1, text="0",command=lambda: clicl(0))
+      self.botão0.place(relx=0.29, rely=0.15, relwidth=0.15, relheight=0.1)
+
+      self.botão1 = Button(self.frame1, text="1",command=lambda: clicl(1))
+      self.botão1.place(relx=0.44, rely=0.15, relwidth=0.15, relheight=0.1)
+
+      self.botão2 = Button(self.frame1, text="2",command=lambda: clicl(2))
+      self.botão2.place(relx=0.59, rely=0.15, relwidth=0.15, relheight=0.1)
+
+      self.botão3 = Button(self.frame1, text="3",command=lambda: clicl(3))
+      self.botão3.place(relx=0.29, rely=0.25, relwidth=0.15, relheight=0.1)
+
+      self.botão4 = Button(self.frame1, text="4",command=lambda: clicl(4))
+      self.botão4.place(relx=0.44, rely=0.25, relwidth=0.15, relheight=0.1)
+
+      self.botão5 = Button(self.frame1, text="5",command=lambda: clicl(5))
+      self.botão5.place(relx=0.59, rely=0.25, relwidth=0.15, relheight=0.1)
+
+      self.botão6 = Button(self.frame1, text="6",command=lambda: clicl(6))
+      self.botão6.place(relx=0.29, rely=0.35, relwidth=0.15, relheight=0.1)
+
+      self.botão7 = Button(self.frame1, text="7",command=lambda: clicl(7))
+      self.botão7.place(relx=0.44, rely=0.35, relwidth=0.15, relheight=0.1)
+
+      self.botão8 = Button(self.frame1, text="8",command=lambda: clicl(8))
+      self.botão8.place(relx=0.59, rely=0.35, relwidth=0.15, relheight=0.1)
+
+      self.botão9 = Button(self.frame1, text="9",command=lambda: clicl(9))
+      self.botão9.place(relx=0.29, rely=0.45, relwidth=0.15, relheight=0.1)
+
+    def Oper(self):
+        def clicl(valor):
+            self.entry.insert(END, valor)
+
+        self.opermais = Button(self.frame1, text="+",command=lambda: clicl("+"))
+        self.opermais.place(relx=0.14, rely=0.15, relwidth=0.15, relheight=0.1)
+
+        self.opermenos = Button(self.frame1, text="-",command=lambda: clicl("-"))
+        self.opermenos.place(relx=0.14, rely=0.25, relwidth=0.15, relheight=0.1)
+
+        self.operdivi = Button(self.frame1, text="/",command=lambda: clicl("/"))
+        self.operdivi.place(relx=0.14, rely=0.35, relwidth=0.15, relheight=0.1)
+
+        self.opermulti = Button(self.frame1, text="x",command=lambda: clicl("*"))
+        self.opermulti.place(relx=0.14, rely=0.45, relwidth=0.15, relheight=0.1)
+
+        self.opermulti = Button(self.frame1, text="=", command=self.rap1)
+        self.opermulti.place(relx=0.44, rely=0.45, relwidth=0.15, relheight=0.1)
+
+        self.opermulti = Button(self.frame1, text="C", command=self.rap2)
+        self.opermulti.place(relx=0.59, rely=0.45, relwidth=0.15, relheight=0.1)
+
+
+    def EntryPrincipal(self):
+        self.entry = Entry(self.frame1)
+        self.entry.place(relx=0.29, rely=0.05, relwidth=0.35, relheight=0.04)
+
+        self.names = self.entry.get()
+
+
+
+
+
+
+
+
+
+
+Aplicação()
