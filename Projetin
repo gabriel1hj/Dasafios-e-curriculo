@@ -1,0 +1,23 @@
+Fiz um codigo no mysql que calcula a quantidade de produtos com a de vendas veja
+
+DELIMITER $$
+Create Procedure desafio2(in ID int,out result int)
+begin
+
+DECLARE x int DEFAULT 0 ;
+
+
+
+
+set x = (select i_QTD_vendas * i_Preçodoproduto_vendas from vendas where i_IDvendas_vendas = ID);
+
+
+
+set result = x;
+
+
+
+
+
+END $$
+DELIMITER ;
