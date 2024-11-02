@@ -1,0 +1,19 @@
+lista = []
+
+for i in range(10):
+    t = int(input("Digite:"))
+    aplication = lista.append(t)
+
+suporte = []
+a = int(input("Digite:"))
+c = 0
+
+for i in lista:
+    if i == a:
+      aplication = suporte.append(c)
+      c += 1
+    else:
+      c += 1
+
+print(f"As posições do {a} são ->")
+print(list(suporte))
